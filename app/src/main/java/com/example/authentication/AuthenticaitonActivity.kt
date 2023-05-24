@@ -1,5 +1,6 @@
 package com.example.authentication
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -24,6 +25,7 @@ class AuthenticaitonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthenticaitonBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        checkPref()
         firebaseAuth = FirebaseAuth.getInstance()
         togglePassVisability()
         binding.loginBT.setOnClickListener {
@@ -56,6 +58,10 @@ class AuthenticaitonActivity : AppCompatActivity() {
                 if(email.length > 0 && password.length > 0){
                     firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                         if(it.isSuccessful) {
+                            val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+                            var editor = sharedPreference.edit()
+                            editor.putBoolean("isLoggedIn", true)
+                            editor.commit()
                             binding.submitButton.visibility = View.GONE
                             binding.progressBar.visibility = View.VISIBLE
                             Toast.makeText(this, "Log in successfully", Toast.LENGTH_SHORT).show()
@@ -108,5 +114,14 @@ class AuthenticaitonActivity : AppCompatActivity() {
             binding.passwordEditText.setSelection(pass.length)
         }
         isPasswordVisible = !isPasswordVisible
+    }
+    private fun checkPref(){
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val value = sharedPreference.getBoolean("isLoggedIn", false)
+        if(value){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
