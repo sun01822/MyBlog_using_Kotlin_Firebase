@@ -6,25 +6,63 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg"
-    android:gravity="center"
     tools:context=".DemoActivity">
 
-    <ProgressBar
-        android:layout_gravity="center"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
-        android:layout_below="@+id/submitButton"
-        android:layout_centerHorizontal="true"
-        android:indeterminate="false" />
-    <TextView
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/demo_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="italic|bold"
-        android:text="Loading"
-        android:textSize="25sp"
-        android:textColor="@android:color/black"
-        android:textAlignment="center"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ProgressBar
+            android:layout_gravity="center"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="false" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic|bold"
+            android:text="Loading"
+            android:textSize="30sp"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/net_connection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/connection_lost"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic|bold"
+            android:text="Check Internet Connection"
+            android:textSize="30sp"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+        <Button
+            android:id="@+id/reloadButton"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:backgroundTint="@color/purple_200"
+            android:text="Reload"
+            android:textSize="22sp"
+            android:elevation="15dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import com.example.authentication.databinding.ActivityDemoBinding
 
 class DemoActivity : AppCompatActivity() {
@@ -22,7 +23,21 @@ class DemoActivity : AppCompatActivity() {
     }
 
     private fun goToNext() {
-        startActivity(Intent(this, AuthenticaitonActivity::class.java))
-        finish()
+        val code = intent.getStringExtra("code")
+        if(code == "n"){
+            binding.netConnection.visibility = View.VISIBLE
+            binding.demoLayout.visibility = View.GONE
+            binding.reloadButton.setOnClickListener{
+                startActivity(Intent(this, SplashScreen::class.java))
+                finish()
+            }
+        }
+        else{
+            binding.netConnection.visibility = View.GONE
+            binding.demoLayout.visibility = View.VISIBLE
+            startActivity(Intent(this, AuthenticaitonActivity::class.java))
+            finish()
+        }
+
     }
 }

@@ -12,9 +12,9 @@
             android:id="@+id/nav_settings"
             android:title="Settings"/>
         <item
-            android:icon="@drawable/share_icon"
-            android:id="@+id/nav_share"
-            android:title="Share"/>
+            android:icon="@drawable/post_icon"
+            android:id="@+id/nav_post"
+            android:title="Post"/>
         <item
             android:icon="@drawable/about_us_icon"
             android:id="@+id/nav_about"
