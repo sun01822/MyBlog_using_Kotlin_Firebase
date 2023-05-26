@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="center"
-    android:background="@drawable/profile_bg"
+    android:orientation="vertical"
+    android:background="@drawable/profilebg"
     tools:context=".ProfileFragment">
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="40dp">
+        android:gravity="center">
 
-        <androidx.cardview.widget.CardView
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            app:cardCornerRadius="150dp"
-            android:layout_gravity="center">
-            <ImageView
-                android:id="@+id/profile_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/profile_default"/>
-        </androidx.cardview.widget.CardView>
+            android:src="@drawable/profile_default"
+            app:civ_border_width="4dp"
+            app:civ_border_color="#6DE324"
+            android:elevation="10dp"
+            app:civ_border_overlay="true"/>
 
         <LinearLayout
             android:padding="15dp"
@@ -112,7 +117,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="Start From:"
+                android:text="From:"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
@@ -130,4 +135,6 @@
 
     </LinearLayout>
 
-</ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

@@ -8,6 +8,9 @@
         <item android:icon="@drawable/home_icon"
             android:id="@+id/nav_home"
             android:title="Home"/>
+        <item android:icon="@drawable/profile_icon"
+            android:id="@+id/nav_profile"
+            android:title="Profile"/>
         <item android:icon="@drawable/settings_icon"
             android:id="@+id/nav_settings"
             android:title="Settings"/>

@@ -3,32 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="240dp"
+    android:layout_height="250dp"
     android:gravity="bottom"
     android:padding="16dp"
+    android:id="@+id/navheader"
     android:background="@drawable/headerbg"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
-    <androidx.cardview.widget.CardView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:cardCornerRadius="100dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/alogo"/>
-    </androidx.cardview.widget.CardView>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/profile_default" />
 
     <TextView
-
+        android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Android Knowledge"
-        android:textSize="22sp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"/>
     <TextView
+        android:id="@+id/profile_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="contact@androidknowledge.com"
-        android:textSize="16sp"
+        android:textSize="15sp"
+        android:textStyle="bold"
         android:layout_marginBottom="25dp"/>
 </LinearLayout>
