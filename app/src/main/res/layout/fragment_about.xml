@@ -1,17 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/about_bg"
     tools:context=".AboutFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="About Us"
-        android:textAlignment="center"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
 
-</FrameLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About Us"
+                    android:textSize="45sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold|italic"/>
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_marginTop="40dp"
+                    android:id="@+id/profile_image"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/instructor"
+                    android:layout_gravity="center"
+                    app:civ_border_width="4dp"
+                    app:civ_border_color="@android:color/white"
+                    android:elevation="10dp"
+                    app:civ_border_overlay="true"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Instructor: Mohiuddin Tarek"
+                    android:textStyle="normal|italic|bold"
+                    android:textSize="28sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_marginTop="40dp"
+                    android:id="@+id/profile_image2"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/developer"
+                    android:layout_gravity="center"
+                    app:civ_border_width="4dp"
+                    app:civ_border_color="@android:color/white"
+                    android:elevation="10dp"
+                    app:civ_border_overlay="true"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Developer: MD. Shariar Hossain Sun"
+                    android:textStyle="normal|italic|bold"
+                    android:textSize="28sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <TextView
+                    android:padding="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/aboutMe"
+                    android:textSize="20sp"
+                    android:justificationMode="inter_word"
+                    android:textColor="@color/white"
+                    android:textStyle="normal"/>
+
+                <TextView
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contactMe"
+                    android:textSize="16sp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/white"
+                    android:textStyle="normal|bold"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

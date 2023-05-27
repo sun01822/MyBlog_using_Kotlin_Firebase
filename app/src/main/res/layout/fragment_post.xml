@@ -1,17 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/upload_bg2"
     tools:context=".PostFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Post"
-        android:textAlignment="center"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
 
-</FrameLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/setImage"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/upload_bg"
+                    android:layout_gravity="center" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+                <EditText
+                    android:layout_margin="10dp"
+                    android:id="@+id/description"
+                    android:background="@drawable/custom_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:drawableLeft="@drawable/post_icon"
+                    android:drawablePadding="10dp"
+                    android:minLines="8"
+                    android:hint="Description"
+                    android:textColorHint="@color/purple_200"
+                    />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Upload Blog"
+                    android:backgroundTint="@color/purple_500"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

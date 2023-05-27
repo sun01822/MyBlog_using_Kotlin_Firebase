@@ -10,8 +10,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.authentication.databinding.FragmentProfileBinding
+import androidx.fragment.app.FragmentTransaction
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import de.hdodenhof.circleimageview.CircleImageView
 
 
 class ProfileFragment : Fragment() {
@@ -25,6 +28,15 @@ class ProfileFragment : Fragment() {
             refreshApp()
             getAllProfileData(myValue.toString())
         }
+
+        binding.update.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("email", myValue) // Replace "key" with an appropriate key and "data" with the actual data
+            val fragment = UpdateProfileFragment()
+            fragment.arguments = bundle
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
+        }
+
         return binding.root
     }
 
@@ -38,6 +50,12 @@ class ProfileFragment : Fragment() {
     private fun getAllProfileData(myValue: String){
         db.collection("Profile").document(myValue).get().addOnCompleteListener {
             val data = it.result.toObject(ProfileModel::class.java)
+            if(data?.image?.isEmpty() == false){
+                Glide.with(this).load(data?.image).into(binding.profileImage)
+            }
+            else{
+                Glide.with(this).load(R.drawable.profile_default).into(binding.profileImage)
+            }
             binding.name.text = data?.name
             binding.email.text = data?.email
             binding.address.text = data?.address
@@ -47,3 +65,4 @@ class ProfileFragment : Fragment() {
         }
     }
 }
+

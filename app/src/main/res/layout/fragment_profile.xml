@@ -14,126 +14,144 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/profile_default"
-            app:civ_border_width="4dp"
-            app:civ_border_color="#6DE324"
-            android:elevation="10dp"
-            app:civ_border_overlay="true"/>
-
-        <LinearLayout
-            android:padding="15dp"
-            android:layout_marginTop="20dp"
+        <ScrollView
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"
-            android:weightSum="7">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="Name: "
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:textStyle="normal"/>
-
-        </LinearLayout>
+            android:layout_height="wrap_content">
+            
         <LinearLayout
-            android:padding="15dp"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:weightSum="7">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="Email: "
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:textStyle="normal"/>
+            android:gravity="center"
+            android:orientation="vertical">
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="70dp"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:civ_border_width="4dp"
+                app:civ_border_color="#6DE324"
+                android:elevation="10dp"
+                app:civ_border_overlay="true"/>
 
+            <LinearLayout
+                android:padding="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:weightSum="7">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="Name: "
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textStyle="normal"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:weightSum="7">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="Email: "
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textStyle="normal"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:weightSum="7">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="Address: "
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textStyle="normal"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:weightSum="7">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="From:"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textStyle="normal"/>
         </LinearLayout>
-        <LinearLayout
-            android:padding="15dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"
-            android:weightSum="7">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="Address: "
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/address"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:textStyle="normal"/>
 
+                <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+                <Button
+                    android:id="@+id/update"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Update Profile"
+                    android:backgroundTint="#50BE0B"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+            
         </LinearLayout>
-        <LinearLayout
-            android:padding="15dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"
-            android:weightSum="7">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="From:"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/time"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:textStyle="normal"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
+        </ScrollView>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
