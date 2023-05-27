@@ -32,9 +32,39 @@
                     android:textColor="@color/white"
                     android:textStyle="bold|italic"/>
 
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_marginTop="40dp"
                     android:id="@+id/profile_image"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/instructor"
+                    android:layout_gravity="center"
+                    app:civ_border_width="4dp"
+                    app:civ_border_color="@android:color/white"
+                    android:elevation="10dp"
+                    app:civ_border_overlay="true"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Instructor: Mohiuddin Tarek"
+                    android:textStyle="normal|italic|bold"
+                    android:textSize="28sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_marginTop="40dp"
+                    android:id="@+id/profile_image2"
                     android:layout_width="250dp"
                     android:layout_height="250dp"
                     android:src="@drawable/developer"
@@ -47,10 +77,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"/>
 
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="MD. Shariar Hossain Sun"
+                    android:text="Developer: MD. Shariar Hossain Sun"
                     android:textStyle="normal|italic|bold"
                     android:textSize="28sp"
                     android:textColor="@color/white"
@@ -76,6 +107,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/contactMe"
                     android:textSize="16sp"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/white"
                     android:textStyle="normal|bold"/>
 

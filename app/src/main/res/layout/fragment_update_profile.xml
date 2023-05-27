@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/profilebg"
+    tools:context=".UpdateProfileFragment">
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/setImage"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    app:civ_border_width="4dp"
+                    app:civ_border_color="#6DE324"
+                    android:elevation="10dp"
+                    app:civ_border_overlay="true"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                <EditText
+                    android:id="@+id/setName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_edittext"
+                    android:hint="Name"
+                    android:padding="15dp"
+                    android:drawableLeft="@drawable/post_icon"
+                    android:drawablePadding="8dp"
+                    android:textColorHint="@color/purple_200"
+                    android:layout_margin="10dp"/>
+
+                <EditText
+                    android:id="@+id/setAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_edittext"
+                    android:hint="Address"
+                    android:padding="15dp"
+                    android:drawableLeft="@drawable/post_icon"
+                    android:drawablePadding="8dp"
+                    android:textColorHint="@color/purple_200"
+                    android:layout_margin="15dp"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+                <Button
+                    android:id="@+id/update"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Update Now"
+                    android:backgroundTint="#50BE0B"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+                <ProgressBar
+                    android:visibility="invisible"
+                    android:layout_gravity="center"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/progressBar"
+                    android:layout_centerHorizontal="true"
+                    android:indeterminate="false" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

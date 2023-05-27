@@ -41,19 +41,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
         val sharedPreference =  getSharedPreferences("secret", Context.MODE_PRIVATE)
         val email = sharedPreference.getString("email", null)
-        db.collection("Profile").document(email.toString()).get().addOnCompleteListener {
-            val data = it.result.toObject(ProfileModel::class.java)
-            navigationView = findViewById(R.id.nav_view)
-            val headerLayout = navigationView.getHeaderView(0)
-            val profileName = headerLayout.findViewById<TextView>(R.id.profile_name)
-            val profileEmail = headerLayout.findViewById<TextView>(R.id.profile_email)
-            val profileImage = headerLayout.findViewById<CircleImageView>(R.id.profile_image)
-            Glide.with(this).load(R.drawable.profile_default).into(profileImage)
-            profileName.text = data?.name
-            profileEmail.text = data?.email
-        }.addOnFailureListener {
-            Toast.makeText(this, it.localizedMessage, Toast.LENGTH_SHORT).show()
-        }
+
+        relaodAllData(email.toString())
+
         val sharedPreference2 =  getSharedPreferences("secretDB", Context.MODE_PRIVATE)
         var editor = sharedPreference2.edit()
         editor.putString("email", email)
@@ -64,6 +54,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+    }
+
+    private fun relaodAllData(email : String){
+        db.collection("Profile").document(email.toString()).get().addOnCompleteListener {
+            val data = it.result.toObject(ProfileModel::class.java)
+            navigationView = findViewById(R.id.nav_view)
+            val headerLayout = navigationView.getHeaderView(0)
+            val profileName = headerLayout.findViewById<TextView>(R.id.profile_name)
+            val profileEmail = headerLayout.findViewById<TextView>(R.id.profile_email)
+            val profileImage = headerLayout.findViewById<CircleImageView>(R.id.profile_image)
+            if(data?.image?.isEmpty() == false){
+                Glide.with(this).load(data?.image).into(profileImage)
+            }
+            else{
+                Glide.with(this).load(R.drawable.profile_default).into(profileImage)
+            }
+            profileName.text = data?.name
+            profileEmail.text = data?.email
+        }.addOnFailureListener {
+            Toast.makeText(this, it.localizedMessage, Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

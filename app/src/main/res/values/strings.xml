@@ -10,9 +10,9 @@
         \n\nI possess a solid foundation in programming principles and have honed your skills in Kotlin through dedicated self-study and hands-on projects. From variables and control flow to object-oriented concepts and design patterns, I have built a strong understanding of the language, enabling me to write clean and efficient code.
         \n\nWith a strong work ethic, a growth mindset, and an unwavering passion for Android development, I am well on my way to becoming a highly skilled Android application developer using Kotlin. My dedication to mastering my craft and my commitment to delivering exceptional mobile experiences will undoubtedly propel me toward success in the dynamic world of Android app development.
     </string>
-    <string name="contactMe">\n
-        Contact with me:\n
-        Gmail : mdshariarhossainsun01822@gmail.com
+    <string name="contactMe">
+        \nContact with me:
+        \nGmail : mdshariarhossainsun01822@gmail.com
         \nFacebook: https://www.facebook.com/sun01822
         \nMobile No: +8801521505130
         \n\n</string>
