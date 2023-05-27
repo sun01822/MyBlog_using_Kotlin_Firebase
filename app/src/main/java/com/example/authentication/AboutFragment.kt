@@ -5,15 +5,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.authentication.databinding.FragmentAboutBinding
 
 
 class AboutFragment : Fragment() {
+    private lateinit var binding : FragmentAboutBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about, container, false)
+        binding = FragmentAboutBinding.inflate(layoutInflater)
+        refreshApp()
+        return binding.root
+    }
+    private fun refreshApp() {
+        val swipeToRefresh = binding.swipeToRefresh
+        swipeToRefresh.setOnRefreshListener {
+            swipeToRefresh.isRefreshing = false
+        }
+
     }
 
 }
