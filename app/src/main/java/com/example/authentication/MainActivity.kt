@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var navigationView: NavigationView
+    private lateinit var email : String
     val db = Firebase.firestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +40,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout = findViewById(R.id.drawer_layout)
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        val sharedPreference =  getSharedPreferences("secret", Context.MODE_PRIVATE)
-        val email = sharedPreference.getString("email", null)
 
-        relaodAllData(email.toString())
+        val sharedPreference =  getSharedPreferences("secret", Context.MODE_PRIVATE)
+        email = sharedPreference.getString("email", null).toString()
+
+        relaodAllData(email)
+
+        binding.toolbar.setOnClickListener {
+            relaodAllData(email)
+        }
 
         val sharedPreference2 =  getSharedPreferences("secretDB", Context.MODE_PRIVATE)
         var editor = sharedPreference2.edit()
@@ -93,6 +99,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 finish()
             }
         }
+        relaodAllData(email)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
