@@ -40,6 +40,21 @@ class UpdateProfileFragment : Fragment() {
         refreshApp()
         binding.setImage.setOnClickListener {
             resultLauncher.launch("image/*")
+            db.collection("Profile").document(email).get().addOnCompleteListener {
+                val data = it.result.toObject(ProfileModel::class.java)
+                if(data?.image?.isEmpty() == false) {
+                    val storage = FirebaseStorage.getInstance()
+                    val imageUrl = data.image.toString()
+                    val imageRef = storage.getReferenceFromUrl(imageUrl)
+                    imageRef.delete().addOnCompleteListener {
+
+                    }.addOnFailureListener {exception ->
+                        Toast.makeText(requireContext(), exception.toString(), Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }.addOnFailureListener {
+                Toast.makeText(requireContext(), it.localizedMessage, Toast.LENGTH_SHORT).show()
+            }
             checker = 1
         }
 

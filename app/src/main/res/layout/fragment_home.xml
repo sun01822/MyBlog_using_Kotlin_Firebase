@@ -13,19 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/blogRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textAlignment="center"
-                android:textSize="40sp"
-                android:textColor="@color/purple_500"
-                android:textStyle="bold"/>
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/custom_show_blog_layout"
+            />
+        
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
