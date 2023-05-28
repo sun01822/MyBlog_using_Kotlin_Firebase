@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="480dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="30dp"
+    android:weightSum="15">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="2"
+        android:weightSum="8">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/profile_default" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:orientation="vertical"
+            android:weightSum="6">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4">
+
+                <TextView
+                    android:id="@+id/profileName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="MD. Shariar Hossain Sun"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textAlignment="viewStart"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    tools:ignore="RtlCompat" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+                <TextView
+                    android:id="@+id/postTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="2023-05-26 10:32:07 AM"
+                    android:textStyle="italic|bold"
+                    android:gravity="center"
+                    android:textAlignment="viewStart"
+                    android:textSize="15sp"
+                    tools:ignore="RtlCompat" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2">
+        <TextView
+            android:id="@+id/postDescription"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum nunc in urna porta."/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="9">
+        <ImageView
+            android:id="@+id/postImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/developer"
+            android:scaleType="centerCrop"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/likeButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/like_icon"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/loveButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/love_icon"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/unlikeButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/unlike_icon"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_height="0dp"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/postLikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/postLoves"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/postUnlikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
