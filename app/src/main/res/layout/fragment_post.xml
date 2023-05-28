@@ -63,7 +63,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Upload Blog"
-                    android:backgroundTint="@color/purple_500"
+                    android:padding="15dp"
+                    android:backgroundTint="#08BF0E"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     />

@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="480dp"
     android:orientation="vertical"
-    android:weightSum="16">
+    android:layout_marginBottom="30dp"
+    android:weightSum="15">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +21,6 @@
             android:gravity="center"
             android:orientation="vertical">
             <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profileImage"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:textStyle="normal"
             android:textSize="15sp"
-            android:text="I am MD. Shariar Hossain Sun. I am from Rajshahi. I can do any type of android coding."/>
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum nunc in urna porta."/>
 
     </LinearLayout>
 
@@ -107,7 +107,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:orientation="vertical"
         android:weightSum="5">
 
@@ -125,8 +125,8 @@
                 android:layout_height="match_parent">
                 <ImageView
                     android:id="@+id/likeButton"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/like_icon"
                     />
 
@@ -139,8 +139,8 @@
                 android:layout_height="match_parent">
                 <ImageView
                     android:id="@+id/loveButton"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/love_icon"
                     />
 
@@ -153,8 +153,8 @@
                 android:layout_height="match_parent">
                 <ImageView
                     android:id="@+id/unlikeButton"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/unlike_icon"
                     />
 
@@ -165,7 +165,8 @@
             android:layout_weight="2"
             android:orientation="horizontal"
             android:weightSum="3"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            >
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -213,14 +214,8 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     />
-
             </LinearLayout>
-
-
-
         </LinearLayout>
-
-
     </LinearLayout>
 
 </LinearLayout>
