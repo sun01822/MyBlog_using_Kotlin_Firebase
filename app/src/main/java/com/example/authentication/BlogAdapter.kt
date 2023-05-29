@@ -52,12 +52,12 @@ class BlogAdapter(private val dataList: ArrayList<PostModel>):RecyclerView.Adapt
 
         holder.itemView.setOnClickListener{
             if(mOnClickListener!=null){
-                mOnClickListener!!.onClick(position,singleData)
+                mOnClickListener!!.onClick(singleData)
             }
         }
         holder.likeButton.setOnClickListener{
             if(mLikeListener!=null){
-                mLikeListener!!.onLikeClick(position,singleData)
+                mLikeListener!!.onLikeClick(singleData)
                 holder.likeButton.setImageResource(R.drawable.fill_like_icon)
                 holder.loveButton.setImageResource(R.drawable.love_icon)
                 holder.unlikeButton.setImageResource(R.drawable.unlike_icon)
@@ -66,7 +66,7 @@ class BlogAdapter(private val dataList: ArrayList<PostModel>):RecyclerView.Adapt
 
         holder.loveButton.setOnClickListener {
             if(mLoveListener!=null) {
-                mLikeListener!!.onLoveClick(position,singleData)
+                mLikeListener!!.onLoveClick(singleData)
                 holder.likeButton.setImageResource(R.drawable.like_icon)
                 holder.loveButton.setImageResource(R.drawable.fill_love_icon)
                 holder.unlikeButton.setImageResource(R.drawable.unlike_icon)
@@ -75,7 +75,7 @@ class BlogAdapter(private val dataList: ArrayList<PostModel>):RecyclerView.Adapt
 
         holder.unlikeButton.setOnClickListener {
             if(mUnlikeListener!=null) {
-                mUnlikeListener!!.onUnlikeClick(position,singleData)
+                mUnlikeListener!!.onUnlikeClick(singleData)
                 holder.likeButton.setImageResource(R.drawable.like_icon)
                 holder.loveButton.setImageResource(R.drawable.love_icon)
                 holder.unlikeButton.setImageResource(R.drawable.fill_unlike_icon)
@@ -91,10 +91,10 @@ class BlogAdapter(private val dataList: ArrayList<PostModel>):RecyclerView.Adapt
     }
 
     interface OnClickListener {
-        fun onClick(position: Int, post: PostModel)
-        fun onLikeClick(position: Int, post: PostModel)
-        fun onLoveClick(position: Int, post: PostModel)
-        fun onUnlikeClick(position: Int, post: PostModel)
+        fun onClick(post: PostModel)
+        fun onLikeClick(post: PostModel)
+        fun onLoveClick(post: PostModel)
+        fun onUnlikeClick(post: PostModel)
 
     }
 

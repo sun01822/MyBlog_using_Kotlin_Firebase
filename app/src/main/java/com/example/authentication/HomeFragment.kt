@@ -67,7 +67,7 @@ class HomeFragment : Fragment() {
         binding.blogRecyclerView.adapter = adapter
 
         adapter.setOnClickListener(object : BlogAdapter.OnClickListener{
-            override fun onClick(position: Int, post: PostModel) {
+            override fun onClick(post: PostModel) {
                 val bundle = Bundle()
                 bundle.putString("postDescription", post.postDescription)
                 bundle.putString("postImage", post.postImage)
@@ -76,18 +76,18 @@ class HomeFragment : Fragment() {
                 requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
             }
 
-            override fun onLikeClick(position: Int, post: PostModel) {
+            override fun onLikeClick(post: PostModel) {
                 var like = post.postLikes?.toInt()!!
                 like++
 
             }
 
-            override fun onLoveClick(position: Int, post: PostModel) {
+            override fun onLoveClick(post: PostModel) {
 
             }
 
 
-            override fun onUnlikeClick(position: Int, post: PostModel) {
+            override fun onUnlikeClick(post: PostModel) {
 
             }
 
