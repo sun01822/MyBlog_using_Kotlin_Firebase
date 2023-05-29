@@ -58,9 +58,9 @@ class PostFragment : Fragment() {
                         val postTime = time
                         val postDescription = binding.description.text.toString()
                         val postImage = ""
-                        val postLikes = 0
-                        val postLoves = 0
-                        val postUnlikes = 0
+                        val postLikes = "0"
+                        val postLoves = "0"
+                        val postUnlikes = "0"
                         val model = PostModel(profileImage, profileName, postTime, postDescription, postImage, postLikes, postLoves, postUnlikes)
                         db.collection("Post").document().set(model).addOnCompleteListener {
                             Toast.makeText(requireContext(), "Blog uploaded successfully", Toast.LENGTH_LONG).show()
@@ -88,9 +88,9 @@ class PostFragment : Fragment() {
                                 val postTime = time
                                 val postDescription = binding.description.text.toString()
                                 val postImage = imageLink
-                                val postLikes = 0
-                                val postLoves = 0
-                                val postUnlikes = 0
+                                val postLikes = "0"
+                                val postLoves = "0"
+                                val postUnlikes = "0"
                                 val model = PostModel(profileImage, profileName, postTime, postDescription, postImage, postLikes, postLoves, postUnlikes)
                                 db.collection("Post").document().set(model).addOnCompleteListener {
                                     Toast.makeText(requireContext(), "Blog uploaded successfully", Toast.LENGTH_LONG).show()

@@ -6,7 +6,7 @@ data class PostModel(
     val postTime : String?=null,
     val postDescription : String?=null,
     val postImage : String?=null,
-    val postLikes : Int?=null,
-    val postLoves : Int?=null,
-    val postUnlikes : Int?=null,
+    val postLikes : String?=null,
+    val postLoves : String?=null,
+    val postUnlikes : String?=null,
 )

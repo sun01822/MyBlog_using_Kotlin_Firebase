@@ -10,6 +10,10 @@ import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 
 class BlogAdapter(private val dataList: ArrayList<PostModel>):RecyclerView.Adapter<BlogAdapter.BlogViewHolder>(){
+    private var mOnClickListener: OnClickListener? = null
+    private var mLikeListener: OnClickListener? = null
+    private var mLoveListener: OnClickListener? = null
+    private var mUnlikeListener: OnClickListener? = null
     class BlogViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val profileImage : CircleImageView = itemView.findViewById(R.id.profileImage)
         val profileName : TextView = itemView.findViewById(R.id.profileName)
@@ -19,6 +23,9 @@ class BlogAdapter(private val dataList: ArrayList<PostModel>):RecyclerView.Adapt
         val postLikes : TextView = itemView.findViewById(R.id.postLikes)
         val postLoves : TextView = itemView.findViewById(R.id.postLoves)
         val postUnlikes:  TextView = itemView.findViewById(R.id.postUnlikes)
+        val likeButton : ImageView = itemView.findViewById(R.id.likeButton)
+        val loveButton : ImageView = itemView.findViewById(R.id.loveButton)
+        val unlikeButton : ImageView = itemView.findViewById(R.id.unlikeButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogViewHolder {
@@ -42,6 +49,53 @@ class BlogAdapter(private val dataList: ArrayList<PostModel>):RecyclerView.Adapt
         holder.postLikes.text = singleData.postLikes.toString()
         holder.postLoves.text = singleData.postLoves.toString()
         holder.postUnlikes.text = singleData.postUnlikes.toString()
+
+        holder.itemView.setOnClickListener{
+            if(mOnClickListener!=null){
+                mOnClickListener!!.onClick(singleData)
+            }
+        }
+        holder.likeButton.setOnClickListener{
+            if(mLikeListener!=null){
+                mLikeListener!!.onLikeClick(singleData)
+                holder.likeButton.setImageResource(R.drawable.fill_like_icon)
+                holder.loveButton.setImageResource(R.drawable.love_icon)
+                holder.unlikeButton.setImageResource(R.drawable.unlike_icon)
+            }
+        }
+
+        holder.loveButton.setOnClickListener {
+            if(mLoveListener!=null) {
+                mLikeListener!!.onLoveClick(singleData)
+                holder.likeButton.setImageResource(R.drawable.like_icon)
+                holder.loveButton.setImageResource(R.drawable.fill_love_icon)
+                holder.unlikeButton.setImageResource(R.drawable.unlike_icon)
+            }
+        }
+
+        holder.unlikeButton.setOnClickListener {
+            if(mUnlikeListener!=null) {
+                mUnlikeListener!!.onUnlikeClick(singleData)
+                holder.likeButton.setImageResource(R.drawable.like_icon)
+                holder.loveButton.setImageResource(R.drawable.love_icon)
+                holder.unlikeButton.setImageResource(R.drawable.fill_unlike_icon)
+            }
+        }
+    }
+
+    fun setOnClickListener(onClickListener: OnClickListener){
+        this.mOnClickListener = onClickListener
+        this.mLikeListener = onClickListener
+        this.mLoveListener = onClickListener
+        this.mUnlikeListener = onClickListener
+    }
+
+    interface OnClickListener {
+        fun onClick(post: PostModel)
+        fun onLikeClick(post: PostModel)
+        fun onLoveClick(post: PostModel)
+        fun onUnlikeClick(post: PostModel)
+
     }
 
 }

@@ -17,6 +17,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     val db = Firebase.firestore
     lateinit var dataList : ArrayList<PostModel>
+    private lateinit var adapter: BlogAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,11 +59,40 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun initRecyclerView(){
+    private fun initRecyclerView() {
         binding.blogRecyclerView.hasFixedSize()
         binding.blogRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         dataList.shuffle()
-        binding.blogRecyclerView.adapter = BlogAdapter(dataList)
+        adapter = BlogAdapter(dataList)
+        binding.blogRecyclerView.adapter = adapter
+
+        adapter.setOnClickListener(object : BlogAdapter.OnClickListener{
+            override fun onClick(post: PostModel) {
+                val bundle = Bundle()
+                bundle.putString("postDescription", post.postDescription)
+                bundle.putString("postImage", post.postImage)
+                val fragment = DetailScreenFragment()
+                fragment.arguments = bundle
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
+            }
+
+            override fun onLikeClick(post: PostModel) {
+                var like = post.postLikes?.toInt()!!
+                like++
+
+            }
+
+            override fun onLoveClick(post: PostModel) {
+
+            }
+
+
+            override fun onUnlikeClick(post: PostModel) {
+
+            }
+
+        })
+
     }
 
 }
