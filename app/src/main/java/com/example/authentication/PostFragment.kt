@@ -13,6 +13,8 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.example.authentication.databinding.FragmentPostBinding
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -53,6 +55,7 @@ class PostFragment : Fragment() {
                 db.collection("Profile").document(email).get().addOnCompleteListener {
                     val data = it.result.toObject(ProfileModel::class.java)
                     if(data != null){
+                        val task : Task<AuthResult>
                         val profileName = data?.name.toString()
                         val profileImage = data?.image.toString()
                         val postTime = time
@@ -61,8 +64,8 @@ class PostFragment : Fragment() {
                         val postLikes = "0"
                         val postLoves = "0"
                         val postUnlikes = "0"
-                        val model = PostModel(profileImage, profileName, postTime, postDescription, postImage, postLikes, postLoves, postUnlikes)
-                        db.collection("Post").document().set(model).addOnCompleteListener {
+                        val model = PostModel(it.toString(), profileImage, profileName, postTime, postDescription, postImage, postLikes, postLoves, postUnlikes)
+                        db.collection(email).document(it.toString()).set(model).addOnCompleteListener {
                             Toast.makeText(requireContext(), "Blog uploaded successfully", Toast.LENGTH_LONG).show()
                             loadingFragment()
                         }.addOnFailureListener {
@@ -91,8 +94,8 @@ class PostFragment : Fragment() {
                                 val postLikes = "0"
                                 val postLoves = "0"
                                 val postUnlikes = "0"
-                                val model = PostModel(profileImage, profileName, postTime, postDescription, postImage, postLikes, postLoves, postUnlikes)
-                                db.collection("Post").document().set(model).addOnCompleteListener {
+                                val model = PostModel(it.toString(), profileImage, profileName, postTime, postDescription, postImage, postLikes, postLoves, postUnlikes)
+                                db.collection(email).document(it.toString()).set(model).addOnCompleteListener {
                                     Toast.makeText(requireContext(), "Blog uploaded successfully", Toast.LENGTH_LONG).show()
                                     loadingFragment()
                                 }.addOnFailureListener {
@@ -139,3 +142,4 @@ class PostFragment : Fragment() {
         binding.setImage.setImageURI(selectImage)
     }
 }
+

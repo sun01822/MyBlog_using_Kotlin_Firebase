@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.authentication.databinding.FragmentHomeBinding
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 
@@ -40,23 +40,36 @@ class HomeFragment : Fragment() {
 
     private fun showAllBlog(){
         dataList = arrayListOf()
-        db.collection("Post").get().addOnSuccessListener {
-            if(it.isEmpty){
+        val firestore = FirebaseFirestore.getInstance()
 
-            }
-            else{
-                it.documents.forEach{singleData->
-                    val model = singleData.toObject(PostModel::class.java)
-                    if(model != null){
-                        dataList.add(model)
+        // Retrieve all collections
+        firestore.collectionGroup("Profile")
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                for (document in querySnapshot.documents) {
+                    val documentName = document.id
+                    //println("Document Name: $documentName")
+                    db.collection("$documentName").get().addOnSuccessListener {
+                        if(it.isEmpty){
+
+                        }
+                        else{
+                            it.documents.forEach{singleData->
+                                val model = singleData.toObject(PostModel::class.java)
+                                if(model != null){
+                                    dataList.add(model)
+                                }
+                            }
+                            initRecyclerView()
+                        }
+                    }.addOnFailureListener {
+
                     }
                 }
-                initRecyclerView()
             }
-        }.addOnFailureListener {
-
-        }
-
+            .addOnFailureListener { exception ->
+                println("Error getting collections: $exception")
+            }
     }
 
     private fun initRecyclerView() {

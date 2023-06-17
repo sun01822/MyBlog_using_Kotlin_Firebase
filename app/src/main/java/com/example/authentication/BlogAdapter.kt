@@ -43,8 +43,13 @@ class BlogAdapter(private val dataList: ArrayList<PostModel>):RecyclerView.Adapt
         holder.profileName.text = singleData.profileName
         holder.postTime.text = singleData.postTime
         val temp = singleData.postDescription
-        val shortString = temp?.let { Math.min(it.length, 90) }?.let { temp.substring(0, it) }
-        holder.postDescription.text = "${shortString}" + "   see more"
+        if(temp?.length!! > 70) {
+            val shortString = temp?.let { Math.min(it.length, 70) }?.let { temp.substring(0, it) }
+            holder.postDescription.text = "${shortString}" + "   see more"
+        }
+        else {
+            holder.postDescription.text = temp.toString()
+        }
         Glide.with(holder.postImage.context).load(singleData.postImage).into(holder.postImage)
         holder.postLikes.text = singleData.postLikes.toString()
         holder.postLoves.text = singleData.postLoves.toString()

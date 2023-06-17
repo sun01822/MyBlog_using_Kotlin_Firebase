@@ -84,9 +84,6 @@ class AuthenticaitonActivity : AppCompatActivity() {
                         Toast.makeText(this, it.localizedMessage, Toast.LENGTH_SHORT).show()
                     }
                 }
-                else{
-                    Toast.makeText(this, "Enter valid email and password", Toast.LENGTH_SHORT).show()
-                }
             }
             if(signUp){
                 val image: String = ""
