@@ -56,6 +56,8 @@ class PostFragment : Fragment() {
                     val data = it.result.toObject(ProfileModel::class.java)
                     if(data != null){
                         val task : Task<AuthResult>
+                        val profileEmail = email
+                        val reactChecker = "0"
                         val profileName = data?.name.toString()
                         val profileImage = data?.image.toString()
                         val postTime = time
@@ -64,7 +66,7 @@ class PostFragment : Fragment() {
                         val postLikes = "0"
                         val postLoves = "0"
                         val postUnlikes = "0"
-                        val model = PostModel(it.toString(), profileImage, profileName, postTime, postDescription, postImage, postLikes, postLoves, postUnlikes)
+                        val model = PostModel(it.toString(), profileEmail, profileImage, profileName, postTime, postDescription, postImage, postLikes, postLoves, postUnlikes, reactChecker)
                         db.collection(email).document(it.toString()).set(model).addOnCompleteListener {
                             Toast.makeText(requireContext(), "Blog uploaded successfully", Toast.LENGTH_LONG).show()
                             loadingFragment()
@@ -86,6 +88,8 @@ class PostFragment : Fragment() {
                         db.collection("Profile").document(email).get().addOnCompleteListener {
                             val data = it.result.toObject(ProfileModel::class.java)
                             if(data != null){
+                                val profileEmail = email
+                                val reactChecker = "0"
                                 val profileName = data?.name.toString()
                                 val profileImage = data?.image.toString()
                                 val postTime = time
@@ -94,7 +98,7 @@ class PostFragment : Fragment() {
                                 val postLikes = "0"
                                 val postLoves = "0"
                                 val postUnlikes = "0"
-                                val model = PostModel(it.toString(), profileImage, profileName, postTime, postDescription, postImage, postLikes, postLoves, postUnlikes)
+                                val model = PostModel(it.toString(), profileEmail, profileImage, profileName, postTime, postDescription, postImage, postLikes, postLoves, postUnlikes, reactChecker)
                                 db.collection(email).document(it.toString()).set(model).addOnCompleteListener {
                                     Toast.makeText(requireContext(), "Blog uploaded successfully", Toast.LENGTH_LONG).show()
                                     loadingFragment()
