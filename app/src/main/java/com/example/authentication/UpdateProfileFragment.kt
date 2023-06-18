@@ -77,7 +77,6 @@ class UpdateProfileFragment : Fragment() {
                     }.addOnFailureListener {
 
                     }
-                    Toast.makeText(requireContext(), "Image upload successfully", Toast.LENGTH_SHORT).show()
                 }.addOnFailureListener{
                     Toast.makeText(requireContext(), it.localizedMessage, Toast.LENGTH_SHORT).show()
                 }
@@ -100,7 +99,23 @@ class UpdateProfileFragment : Fragment() {
             "name" to binding.setName.text.toString(),
             "address" to binding.setAddress.text.toString(),
         )
+        val updates2 = hashMapOf<String, Any>(
+            "profileName" to binding.setName.text.toString(),
+        )
         db.collection("Profile").document(email).update(updates)
+        db.collection("${email.toString()}").get().addOnSuccessListener {
+            if(it.isEmpty){
+
+            }
+            else{
+                it.documents.forEach{singleData->
+                    val model = singleData.toObject(PostModel::class.java)
+                    db.collection("${email.toString()}").document(model?.id.toString()).update(updates2)
+                }
+            }
+        }.addOnFailureListener {
+
+        }
     }
     private fun updateAllDataToDatabase(imageLink: String) {
         val updates = hashMapOf<String, Any>(
@@ -108,7 +123,24 @@ class UpdateProfileFragment : Fragment() {
                 "address" to binding.setAddress.text.toString(),
                 "image" to imageLink
         )
+        val updates2 = hashMapOf<String, Any>(
+            "profileName" to binding.setName.text.toString(),
+            "profileImage" to imageLink
+        )
         db.collection("Profile").document(email).update(updates)
+        db.collection("${email.toString()}").get().addOnSuccessListener {
+            if(it.isEmpty){
+
+            }
+            else{
+                it.documents.forEach{singleData->
+                    val model = singleData.toObject(PostModel::class.java)
+                    db.collection("${email.toString()}").document(model?.id.toString()).update(updates2)
+                }
+            }
+        }.addOnFailureListener {
+
+        }
     }
 
     private fun refreshApp() {
