@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.authentication.databinding.FragmentProfileBinding
@@ -63,6 +64,21 @@ class ProfileFragment : Fragment() {
         }.addOnFailureListener {
             Toast.makeText(requireContext(),it.localizedMessage, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true)
+            {
+                override fun handleOnBackPressed() {
+                    requireActivity().supportFragmentManager.beginTransaction().replace(com.example.authentication.R.id.fragment_container, HomeFragment()).commit()
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this.requireActivity(),
+            callback
+        )
     }
 }
 
