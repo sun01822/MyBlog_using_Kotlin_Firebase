@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.example.authentication.databinding.FragmentPostBinding
@@ -144,6 +145,21 @@ class PostFragment : Fragment() {
     ){
         selectImage = it
         binding.setImage.setImageURI(selectImage)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true)
+            {
+                override fun handleOnBackPressed() {
+                    requireActivity().supportFragmentManager.beginTransaction().replace(com.example.authentication.R.id.fragment_container, HomeFragment()).commit()
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this.requireActivity(),
+            callback
+        )
     }
 }
 
